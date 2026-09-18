@@ -6,9 +6,9 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   workers: 2,
-  timeout: 30_000,
+  timeout: 45_000,
   expect: {
-    timeout: 5_000,
+    timeout: 10_000,
   },
   reporter: [
     ['html', { outputFolder: 'playwright-report', open: 'never' }],
@@ -16,10 +16,11 @@ export default defineConfig({
   ],
   outputDir: 'test-results/artifacts',
   use: {
+    baseURL: 'https://www.practicesoftwaretesting.com',
     actionTimeout: 10_000,
-    navigationTimeout: 15_000,
+    navigationTimeout: 20_000,
     screenshot: 'only-on-failure',
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     video: 'retain-on-failure',
   },
   projects: [

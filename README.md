@@ -1,6 +1,10 @@
 # Playwright UI and API challenge
 
-This project is a compact Playwright TypeScript framework with four TodoMVC browser tests and four JSONPlaceholder API tests. The tests are kept in separate files and can run concurrently on two workers. Each successful UI test attaches a final-state screenshot to the report. On failure, Playwright also retains an automatic screenshot and video; the first CI retry records a trace.
+This project is a compact Playwright TypeScript framework with five browser tests and four JSONPlaceholder API tests. The Practice Software Testing search-to-cart scenario uses Page Object Model classes for the home, product, and cart pages. Tests run concurrently on two workers. Successful UI scenarios attach final-state screenshots to the report. On failure, Playwright retains a screenshot, video, and trace.
+
+## Page Object Model example
+
+The `product-search-cart.spec.ts` test searches for an available product, captures its displayed name and price, validates the product detail page, adds quantity one to the cart, and compares the cart values with the captured product values. Page locators and UI mechanics are contained in `pages/`, while the selected product data lives in `test-data/products.ts`.
 
 ## Install
 
@@ -42,4 +46,4 @@ Reports are written to `playwright-report/index.html` and `test-results/junit-re
 
 ## GitHub Actions
 
-`.github/workflows/playwright.yml` runs for pushes to `main`, pull requests, or a manual dispatch. It checks out the code, uses Node.js 22, installs locked dependencies and Chromium, runs all eight tests, and uploads the HTML report, JUnit XML, screenshots, and any failure evidence even when a test fails. It uses no credentials.
+`.github/workflows/playwright.yml` runs for pushes to `main`, pull requests, or a manual dispatch. It checks out the code, uses Node.js 22, installs locked dependencies and Chromium, runs all nine tests, and uploads the HTML report, JUnit XML, screenshots, and any failure evidence even when a test fails. It uses no credentials.

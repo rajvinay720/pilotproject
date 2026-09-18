@@ -2,7 +2,7 @@
 
 ## Explain this framework.
 
-It is a small Playwright TypeScript test project with four UI and four API scenarios. The configuration centralizes timeouts, retries, two-worker parallelism, reports, and failure artifacts. Each test stays focused on one user or API behavior.
+It is a small Playwright TypeScript test project with five UI and four API scenarios. The Practice Software Testing flow uses focused Page Object Model classes so locators and UI mechanics stay out of the business-level test. The configuration centralizes timeouts, retries, two-worker parallelism, reports, and failure artifacts.
 
 ## How are UI and API tests handled together?
 
@@ -14,7 +14,7 @@ Both use Playwright Test and share one runner and reporting setup. The UI test u
 
 ## How are failures captured?
 
-Each successful UI test attaches a final-state screenshot so its behavior is easy to review. Playwright also keeps an automatic screenshot and video for failed tests. In CI, a failed test receives one retry and a trace is captured on that first retry. Artifacts go under `test-results/artifacts/`.
+Each successful UI test attaches a final-state screenshot so its behavior is easy to review. Playwright also keeps an automatic screenshot, video, and trace for failed tests. In CI, a failed test receives one retry. Artifacts go under `test-results/artifacts/`.
 
 ## How are reports generated?
 
@@ -22,7 +22,7 @@ The HTML and JUnit reporters run together. The human-readable report is `playwri
 
 ## How will this run in GitHub Actions?
 
-Pull requests and manual dispatches start the workflow. It installs dependencies with `npm ci`, installs Chromium, runs the full suite, and uploads the HTML report even if testing fails.
+Pushes to `main`, pull requests, and manual dispatches start the workflow. It installs dependencies with `npm ci`, installs Chromium, runs the full suite, and uploads the report bundle even if testing fails.
 
 ## How would you add smoke and regression tags?
 
