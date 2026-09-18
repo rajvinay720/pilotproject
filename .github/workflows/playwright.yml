@@ -33,11 +33,14 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
-      - name: Upload HTML report
+      - name: Upload test reports and failure evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-html-report
-          path: playwright-report/
+          name: playwright-test-reports
+          path: |
+            playwright-report/
+            test-results/junit-results.xml
+            test-results/artifacts/
           if-no-files-found: warn
           retention-days: 14
