@@ -1,0 +1,16 @@
+{
+  "name": "playwright-interview-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Small Playwright TypeScript UI and API automation suite",
+  "scripts": {
+    "install:chromium": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium",
+    "test": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright test",
+    "test:parallel": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright test --workers=2",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "cross-env": "^10.0.0"
+  }
+}
